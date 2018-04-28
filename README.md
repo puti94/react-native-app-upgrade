@@ -22,7 +22,7 @@
  //then
  react-native link react-native-app-upgrade
 
-
+ //使用xcode将ios_lib下的两个文件添加到项目中
 import {upgrade, openAPPStore, addDownListener} from 'react-native-app-upgrade'
 
 if (原生需要升级 && isAndroid) {
