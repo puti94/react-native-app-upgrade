@@ -8,7 +8,8 @@
 import {
     NativeModules,
     Platform,
-    DeviceEventEmitter
+    DeviceEventEmitter,
+    Linking
 } from 'react-native'
 
 const nativeUpgrade = NativeModules.upgrade;
@@ -85,7 +86,7 @@ export const upgrade = (apkUrl) => {
  */
 export const openAPPStore = (appid) => {
     if (Platform.OS === 'ios') {
-        nativeUpgrade.openAPPStore(appid)
+        Linking.openURL(`https://itunes.apple.com/us/app/id${appid}?ls=1&mt=8`)
     } else {
         console.warn('仅限ios调用')
     }
