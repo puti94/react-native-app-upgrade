@@ -14,15 +14,15 @@ import {
 
 const nativeUpgrade = NativeModules.upgrade;
 
-function handlerVersionString(version): number {
-    version = version.replace('.', '');
-    if (version.length === 2) {
-        version += '0';
-    }
-    if (version.length === 1) {
-        version += '00';
-    }
-    return parseInt(version);
+function handlerVersionString(version: string): number {
+  let versions = version.split('.');
+  let number = 0;
+  if (versions.length === 3) {
+    number = parseInt(versions[0]) * 10000 + parseInt(versions[1]) * 100 + parseInt(versions[2])
+  } else {
+    number = parseInt(versions[0]) * 10000 + parseInt(versions[1]) * 100
+  }
+  return number;
 }
 
 /**
