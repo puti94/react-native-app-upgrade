@@ -7,9 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat.Builder;
-import android.support.v4.content.FileProvider;
+
 import android.util.Log;
+import androidx.core.app.NotificationCompat.Builder;
+import androidx.core.content.FileProvider;
+
 
 import java.io.File;
 import java.io.FileOutputStream;
