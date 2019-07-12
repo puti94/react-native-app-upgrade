@@ -18,5 +18,8 @@ android {
 
 dependencies {
     implementation "com.facebook.react:react-native:${safeExtGet('reactNativeVersion', '+')}"
+<<<<<<< HEAD
     implementation 'com.android.support:support-v4:26.0.0-alpha1'
+=======
+>>>>>>> 4524637d41ea560fb3b09c6290c4f48b3e5bdfb9
 }
