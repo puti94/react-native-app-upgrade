@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.puti.upgrade.test" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="28" />
+
+    <instrumentation
+        android:name="android.support.test.runner.AndroidJUnitRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for com.puti.upgrade.test"
+        android:targetPackage="com.puti.upgrade.test" />
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 8.0安装需要的权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true" >
+        <uses-library android:name="android.test.runner" />
+
+        <provider
+            android:name="com.puti.upgrade.CustomFileProvider"
+            android:authorities="com.puti.upgrade.test.updateFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/update_file_provider" />
+        </provider>
+
+        <service
+            android:name="com.puti.upgrade.DownloadService"
+            android:exported="true" />
+    </application>
+
+</manifest>
